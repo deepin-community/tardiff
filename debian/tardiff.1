@@ -1,0 +1,38 @@
+.TH TARDIFF "1" "December 2011" "TarDiff 0.1" "User Commands"
+.SH NAME
+TarDiff \- Compare two tarballs and report differences
+.SH DESCRIPTION
+TarDiff compares the contents of two tarballs and reports on any
+differences found between them. Its use is mainly for release managers
+who can use it as a QA tool to make sure no files have accidentally been
+left over or were added by mistake. TarDiff supports compressed
+tarballs, diff statistics and suppression of GNU autotool changes.
+.SH SYNOPSIS
+tardiff \fI[options]\fR \fBfile1.tar\fR \fBfile2.tar\fR\fI[.gz/.bz2]\fR
+.SH OPTIONS
+.PD 0
+\fB\-m\fP, \fB\-\-modified\fP Report on all changed files, including those present in both tarballs
+.TP
+\fB\-l\fP, \fB\-\-list\fP     List all files, even those not changed at all
+.TP
+\fB\-a\fP, \fB\-\-autoskip\fP Skip files which belong to the GNU autotools (for \fB\-\-modified\fP)
+.TP
+\fB\-s\fP, \fB\-\-stats\fP    Run statistics (diffstat) on all modified files (for \fB\-\-modified\fP)
+.PP
+\fB\-v\fP, \fB\-\-version\fP  Display tardiff version
+.TP
+\fB\-h\fP, \fB\-\-help\fP     Display this help screen
+.PD
+.SH "SEE ALSO"
+\fItar\fR(1), \fItardy\fR(1)
+.SH "AUTHOR"
+TarDiff was written by Josef Spillner
+<\fIjosef@coolprojects.org\fR>. This man page was written by Axel
+Beckert <\fIabe@debian.org\fR> based on help2man(1) output for the
+Debian Project, but may be used by others.
+.SH "COPYRIGHT"
+Copyright (C) 2005 Josef Spillner <\fIjosef@coolprojects.org\fR>
+.PP
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation.

@@ -1,0 +1,19 @@
+Description: Fixes -a vs -s mixup
+ Due to a typo, the short option -a is not queried while the short
+ option -s works as if would have been -a. The according long options
+ worked as advertised.
+Author: Axel Beckert <abe@debian.org>
+
+Index: tardiff/tardiff
+===================================================================
+--- tardiff.orig/tardiff	2013-06-03 13:45:30.000000000 +0200
++++ tardiff/tardiff	2013-06-03 13:46:08.000000000 +0200
+@@ -41,7 +41,7 @@
+ 			$opt_modified = 1;
+ 		}elsif(($arg eq "--list") or ($arg eq "-l")){
+ 			$opt_list = 1;
+-		}elsif(($arg eq "--autoskip") or ($arg eq "-s")){
++		}elsif(($arg eq "--autoskip") or ($arg eq "-a")){
+ 			$opt_autoskip = 1;
+ 		}elsif(($arg eq "--stats") or ($arg eq "-s")){
+ 			$opt_stats = 1;

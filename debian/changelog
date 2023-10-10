@@ -1,5 +1,87 @@
-template-repository (1.0-1) unstable; urgency=medium
+tardiff (0.1-7) unstable; urgency=medium
 
-  * Initial release
+  * Revamp package description to be more precise and more verbose.
+  * Mention diffoscope as the "big hammer" alternative in the package
+    description and add a Suggests on "diffoscope-minimal | diffoscope".
+  * Remove no more needed lintian override for "no-upstream-changelog".
+  * Bump packaging copyright years in debian/copyright. Thanks Lintian!
+  * Bump debian/watch version to 4. (But the watch file is a no-op. :-)
+  * Declare compliance with Debian Policy 4.6.1. (No changes needed.)
+  * Bump debhelper-compat level to 13.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Axel Beckert <abe@debian.org>  Sat, 02 Jul 2022 15:18:11 +0200
+
+tardiff (0.1-6) unstable; urgency=medium
+
+  * Update renamed lintian tag names in overrides.
+  * Update Vcs-* headers for move to Salsa.
+  * Declare compliance with Debian Policy 4.4.0.
+    + Update debian/copyright format URL to HTTPS.
+    + Set "Rules-Requires-Root: no".
+  * Fix spelling error in fix-unique-uniquebase.diff and make its headers
+    DEP-3 compliant.
+  * Bump debhelper compatibility level to 12.
+    + Build-depend on "debhelper-compat (= 12)" to replace debian/compat.
+  * Update URLs in debian/copyright to HTTPS where feasible.
+
+ -- Axel Beckert <abe@debian.org>  Sun, 01 Sep 2019 16:19:23 +0200
+
+tardiff (0.1-5) unstable; urgency=medium
+
+  * Also fix `tar …` code injection which is also part of CVE-2015-0857.
+  * Update Vcs-Browser header to use https and cgit.
+  * Declare compliance with Debian Policy 3.9.8. (No changes needed.)
+  * Update Vcs-Git header to use https:// instead of git://.
+  * Fix typos found by lintian in man page and long package description.
+  * Add lintian overrides for "pedantic"-level warnings related to tardiff
+    being distributed as a single file.
+
+ -- Axel Beckert <abe@debian.org>  Fri, 29 Apr 2016 00:37:49 +0200
+
+tardiff (0.1-4) unstable; urgency=high
+
+  * Fix CVE-2015-0858.diff to explicitly hardcode OldStyle diff style to
+    work with fix-statistic.diff. Text::Diff has different defaults than
+    "diff".
+
+ -- Axel Beckert <abe@debian.org>  Sat, 17 Oct 2015 17:33:35 +0200
+
+tardiff (0.1-3) unstable; urgency=high
+
+  * Add patch to fix miscalculated statistics. (Closes: #802098)
+  * Add patches to fix two security issues:
+    + CVE-2015-0857: shell command injection through file names
+    + CVE-2015-0858: /tmp race condition in handling temporary directory
+    Issues found and reported by Rainer Müller and Florian Weimer.
+    Additional necessary changes:
+    + Add new run-time dependency on libtext-diff-perl.
+  * Declare compliance with Debian Policy 3.9.6 (no changes needed).
+
+ -- Axel Beckert <abe@debian.org>  Sat, 17 Oct 2015 17:20:17 +0200
+
+tardiff (0.1-2) unstable; urgency=low
+
+  * Patch -a vs -s mixup. (Due to a typo, the short option -a is not
+    queried while the short option -s works as if would have been -a. The
+    according long options worked as advertised.)
+  * Bump debhelper compatibility to 9
+    + Update versioned debhelper build-dependency
+    + Remove manual clean up of *-stamp files
+  * Revamp debian/rules:
+    + Move dh_installman parameter to debian/manpages
+    + Switch to a dh7 style debian/rules file
+  * Remove recommends on essential package
+  * Bump Standards-Version to 3.9.4 (no changes)
+  * Fix lintian warning vcs-field-not-canonical
+  * Remove stray debian/debian/patches/series
+  * Apply wrap-and-sort
+
+ -- Axel Beckert <abe@debian.org>  Mon, 03 Jun 2013 12:57:19 +0200
+
+tardiff (0.1-1) unstable; urgency=low
+
+  * Initial release (Closes: #650668)
+  * Add patch to fix comparison of tar balls with the same base
+    directory.
+
+ -- Axel Beckert <abe@debian.org>  Mon, 07 May 2012 01:02:25 +0200
